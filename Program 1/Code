@@ -1,0 +1,15 @@
+%option noyywrap
+%{
+	#include<stdio.h>
+%}
+%%
+[0-9]+ {printf("Number:%s\n",yytext);}
+[+-] {printf("Operator:%s\n",yytext);}
+[\t\n] {/*ignore whitespaces and new line */}
+[a-zA-Z]* {printf("Invalid Character:%s",yytext);}
+%%
+int main(){
+	printf("Enter");
+	yylex();
+	return 0;
+}
