@@ -1,0 +1,15 @@
+%{
+	#include<stdio.h>
+%}
+
+%%
+[0-9]+[.][0-9]+ { printf("The number is floating number\n"); }
+[.]*[a-zA-Z]*[0-9]*[.]*[0-9]*[.]* { printf("The number is not floating number\n"); }
+%%
+int yywrap(){
+}
+int main(){
+	printf("Enter the number:");
+	yylex();
+	return 0;
+}
