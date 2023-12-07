@@ -1,0 +1,18 @@
+%{
+	#include<stdio.h>
+%}
+
+%%
+int|float|char { printf("It is keyword\n"); }
+[a-zA-Z]+[a-zA-Z]*[0-9]* { printf("It is identifier\n"); }
+[0-9]+[0-9]* { printf("It is constant\n"); }
+"+"|"-"|"*"|"/" { printf("It is operator\n"); }
+"."|"!"|"," { printf("It is puntuation\n"); }
+%%
+int yywrap(){
+}
+int main(){
+	printf("Enter:");
+	yylex();
+	return 0;
+}
